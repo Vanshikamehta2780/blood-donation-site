@@ -1,0 +1,135 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color : Snow;
+}
+
+nav {
+  background-color:FireBrick;
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  background-image: url('blood-donation-banner');
+  background-color:rgba(198,30,30,0.3);
+  background-size: cover;
+  background-position: center;
+  height: 88px;
+  width: 95%;
+  color: black;
+  text-align: center;
+  padding: 50px 50px;
+ }
+
+mark {
+  background-color:rgba(198,30,30,0.3);
+  color: black;
+}
+
+.hero h1 {
+  text-align: left;
+  padding: 0px 8%;
+  font-size: 2.5em;
+}
+
+.hero p{
+  text-align: left;
+  padding: 0px 8%;
+
+}
+
+section {
+  text-align: left;
+  padding: 2px 12%;
+}
+
+h1, h2 {
+  color: FireBrick;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color:FireBrick;
+  color: white;
+}
+
+img {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+form {
+  max-width: 80%;
+  max-height: 50%; 
+  margin: 0 auto;
+  background-color: rgb(255,230,230);
+  border-radius: 8px;
+}
+
+input, textarea {
+  width: 60%;
+  padding: 8px;
+  border: 1px solid black;
+}
+.radio{
+  width: 19%;
+  padding: 8px;	
+}
+
+button {
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b71c1c;
+}
+
+footer {
+  background-color: #c62828;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  margin-top: 30px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
