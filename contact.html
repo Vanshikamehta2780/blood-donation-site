@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact - Blood Donation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="camps.html">Camps</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section>
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Fill in the form below or visit us directly.</p>
+
+    <form>
+<fieldset>
+<legend>Blood Donation Registration</legend><br>
+      <label for="Fname">First Name:</label><br>
+      <input type="text" id="Fname" placeholder="Enter your Firstname" required><br><br>
+
+      <label for="Lname">  Last Name:</label><br>
+      <input type="text" id="Lname" placeholder="Enter your Last name" required><br><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" placeholder="Enter your email"required><br><br>
+
+      <label for="Mobile No">Mobile No:</label><br>
+      <input type="telS" id="number" placeholder="Enter your Mobile No.." maxlength="10" required><br><br>	
+
+      <label for="message">Message:</label><br>
+      <textarea id="message" rows="4" cols="50" placeholder="Your message...."></textarea><br><br>
+
+      <label for="Address">Address:</label><br>
+      <textarea id="Address" rows="4" cols="50" placeholder="Your address...."></textarea><br><br>
+
+      <label for="age">Age:</label><br>
+      <input type="Age" id="Age" placeholder="Enter your Age..."required>
+     <br><br>
+
+      <label for="DOB">Date of Birth:</label><br>
+      <input type="date" id="DOB" name="DOB" required><br><br>
+      
+      <label for="Blood Group">Blood Group(if know):</label><br><br>
+      <select id="Blood Group" name="Blood Group" required><br><br>
+      <option value="">I don't Know</option>
+      <option value="A+">A+</option>
+      <option value="B+">B+</option>
+      <option value="AB+">AB+</option>
+      <option value="A-">A-</option>
+	<option value="B-">B-</option>
+	<option value="AB-">AB-</option>
+	<option value="o+">o+</option>
+	<option value="o-">o-</option>
+    </select><br><br>
+
+	<label for="Camps">Choose Camps city:</label><br><br>
+        <select id="Choose Camps" name="Choose Camps" required><br><br>
+	<option value="pune">pune</option>
+	<option value="Surat">Surat</option>
+	<option value="Rajkot">Rajkot</option>
+	<option value="Gandhinagar">Gandhinagar</option>
+	<option value="Nagpur">Nagpur</option>
+    </select><br><br>
+
+	<label>Have You Donated First time?</label><br>
+	<div class="radio">
+        <input type="radio" name="yes" value="yes" required> Yes
+        <input type="radio" name="no" value="No"> No<br><br>
+	</div>	
+
+	<label>Do You Have any diseases?</label><br>
+        <div class="radio">
+	<input type="radio" name="yes" value="yes" required> Yes
+        <input type="radio" name="no" value="No"> No<br><br>
+	</div>
+
+	<label for="diseases">Enter your diseases:</label><br>
+        <input type="text" id="diseases"><br><br>
+	
+	<label>Do You Have Any Allergies?</label><br>
+        <div class="radio">
+	<input type="radio" name="yes" value="yes" required> Yes
+        <input type="radio" name="no" value="No"> No<br><br>
+	<div>
+      <button type="submit">Submit</button>
+</fieldset>
+    </form>
+
+    <h3 style="text-align:center; margin-top:30px;">Visit Us:</h3>
+    <p style="text-align:center;">Red Cross Building, MG Road, Pune, India</p>
+  </section>
+
+  <footer>
+    <small>We’re here to help — reach out anytime.</small> 
+  </footer>
+
+</body>
+</html>
