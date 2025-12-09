@@ -1,8 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Camps - Blood Donation</title>
+  <title>Camps - Blood Donation Camps</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .camp-container {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .camp-card {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    .camp-card h2 {
+      margin: 0;
+    }
+
+    .search-box {
+      width: 80%;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .search-box input {
+      width: 60%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+    }
+
+    /* Popup form */
+    #popupForm {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #popupForm .form-box {
+      background: white;
+      padding: 20px;
+      width: 350px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    #closePopup {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    input, button {
+      padding: 10px;
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+
+    button {
+      background: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+
 </head>
 <body>
 
@@ -14,52 +90,124 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <section>
-    <h1>Upcoming Blood Donation Camps</h1>
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Location</th>
-        <th>Organizer</th>
-        <th>Contact</th>
-      </tr>
-      <tr>
-        <td>20 Oct 2025</td>
-        <td>Pune City Health Center</td>
-        <td>Red Cross Society</td>
-        <td>+91 98765 43210</td>
-      </tr>
-	 <tr>
-        <td>31 Oct 2025</td>
-        <td>surat city kiran Hospital </td>
-        <td>Vasta Devdi road</td>
-        <td>+91 97652 14308</td>
-      </tr>
-	 <tr>
-        <td>2 nov 2025</td>
-        <td>chandrani Hospital,Rajkot</td>
-        <td>Gaytridham Jamnagar Road</td>
-        <td>+91 98765 43210</td>
-      </tr>
+  <h1 style="text-align:center;">Upcoming Blood Donation Camps</h1>
 
-      <tr>
-        <td>5 Nov 2025</td>
-        <td>Shradhadeep Blood Center,gandhinagar</td>
-        <td>Reliance Chowkdi Kudasan</td>
-        <td>+91 91234 56789</td>
-      </tr>
-      <tr>
-        <td>15 Dec 2025</td>
-        <td>Government Hospital, Nagpur</td>
-        <td>Blood Connect NGO</td>
-        <td>+91 99887 66554</td>
-      </tr>
-    </table>
-  </section>
+  <!-- Search input -->
+  <div class="search-box">
+    <input type="text" id="searchCamp" placeholder="Search by location...">
+  </div>
+
+  <div class="camp-container">
+
+    <div class="camp-card">
+      <h2>Camp 1: Red Cross Center</h2>
+      <p>Location: Ahmedabad</p>
+      <p>Date: 15 Jan 2025</p>
+      <button class="registerBtn">Register Now</button>
+    </div>
+
+    <div class="camp-card">
+      <h2>Camp 2: Shree Hospital</h2>
+      <p>Location: Vadodara</p>
+      <p>Date: 25 Jan 2025</p>
+      <button class="registerBtn">Register Now</button>
+    </div>
+
+    <div class="camp-card">
+      <h2>Camp 3: City Medical Hall</h2>
+      <p>Location: Surat</p>
+      <p>Date: 5 Feb 2025</p>
+      <button class="registerBtn">Register Now</button>
+    </div>
+
+  </div>
+
+  <!-- Popup Registration Form -->
+  <div id="popupForm">
+    <div class="form-box">
+      <span id="closePopup">&times;</span>
+
+      <h2>Camp Registration</h2>
+
+      <input type="text" id="regName" placeholder="Your Name">
+      <input type="number" id="regAge" placeholder="Your Age">
+      <input type="text" id="regPhone" placeholder="Phone Number">
+
+      <button id="submitReg">Submit</button>
+
+      <p id="regStatus" style="font-weight:bold;margin-top:10px;"></p>
+    </div>
+  </div>
 
   <footer>
-   <small> &copy;Join us at the next camp — every drop counts.</small> 
+    <p>&copy 2025 Blood Donation Awareness Project</p>
   </footer>
+
+  <script>
+    document.getElementById("searchCamp").addEventListener("keyup", function() {
+      let input = this.value.toLowerCase();
+      let camps = document.querySelectorAll(".camp-card");
+
+      camps.forEach(camp => {
+        let location = camp.querySelector("p").textContent.toLowerCase();
+        camp.style.display = location.includes(input) ? "block" : "none";
+      });
+    });
+
+    const registerBtns = document.querySelectorAll(".registerBtn");
+    const popup = document.getElementById("popupForm");
+
+    registerBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        popup.style.display = "flex";
+      });
+    });
+
+    document.getElementById("closePopup").addEventListener("click", () => {
+      popup.style.display = "none";
+    });
+
+    popup.addEventListener("click", (e) => {
+      if (e.target === popup) {
+        popup.style.display = "none";
+      }
+    });
+
+    document.getElementById("submitReg").addEventListener("click", () => {
+
+      let name = document.getElementById("regName").value.trim();
+      let age = document.getElementById("regAge").value.trim();
+      let phone = document.getElementById("regPhone").value.trim();
+      let status = document.getElementById("regStatus");
+
+      if (name === "" || age === "" || phone === "") {
+        status.style.color = "red";
+        status.textContent = "Please fill all the fields!";
+        return;
+      }
+
+      if (age < 18) {
+        status.style.color = "red";
+        status.textContent = "You must be 18+ to donate blood!";
+        return;
+      }
+
+      if (phone.length < 10) {
+        status.style.color = "red";
+        status.textContent = "Enter a valid phone number!";
+        return;
+      }
+
+      status.style.color = "green";
+      status.textContent = "Registration Successful! Thank You ❤️";
+
+      
+      document.getElementById("regName").value = "";
+      document.getElementById("regAge").value = "";
+      document.getElementById("regPhone").value = "";
+    });
+
+  </script>
 
 </body>
 </html>
