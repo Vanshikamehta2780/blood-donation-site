@@ -1,8 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gallery - Blood Donation</title>
+  <title>Gallery - Blood Donation Camps</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 50px;
+      padding: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    #lightbox {
+      display: none; 
+      position: fixed;
+      top: 0; left: 0; 
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #lightbox img {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    #closeBtn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+
 </head>
 <body>
 
@@ -14,19 +64,48 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <section>
-    <h1>Gallery</h1>
-    <p>Moments from our recent blood donation drives.</p>
-    <div class="gallery">
-      <img src="test1.jpg" alt="Camp 1">
-      <img src="test2.jpg" alt="Camp 2">
-      <img src="test3.jpg" alt="Camp 3">
-    </div>
+  <h1 style="text-align:center; margin-top:20px;">Gallery</h1>
+
+  <section class="gallery">
+    <img src="test1.jpg" alt="Blood Donation 1">
+    <img src="test2.jpg" alt="Blood Donation 2">
+    <img src="test3.jpg" alt="Blood Donation 3">
+    <img src="test4.jpg" alt="Blood Donation 3">
   </section>
 
+
+  <div id="lightbox">
+    <span id="closeBtn">&times;</span>
+    <img id="lightboxImg">
+  </div>
+
   <footer>
-    <small>Thank you to all our volunteers and donors. </small>
+    <small>&copy 2025 Blood Donation Awareness Project</small>
   </footer>
+
+  <script>
+    const galleryImages = document.querySelectorAll(".gallery img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeBtn = document.getElementById("closeBtn");
+
+    galleryImages.forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target !== lightboxImg) {
+        lightbox.style.display = "none";
+      }
+    });
+  </script>
 
 </body>
 </html>
