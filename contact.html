@@ -14,11 +14,11 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <section>
+  <section class="contact-section">
     <h1>Contact Us</h1>
     <p>We’d love to hear from you! Fill in the form below or visit us directly.</p>
 
-    <form>
+    <form id="contactForm">
 <fieldset>
 <legend>Blood Donation Registration</legend><br>
       <label for="Fname">First Name:</label><br>
@@ -94,11 +94,38 @@
 
     <h3 style="text-align:center; margin-top:30px;">Visit Us:</h3>
     <p style="text-align:center;">Red Cross Building, MG Road, Pune, India</p>
+
+<p id="formStatus" style="color: green; font-weight: bold; margin-top: 10px;"></p>
   </section>
 
   <footer>
     <small>We’re here to help — reach out anytime.</small> 
   </footer>
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // stop page refresh
+
+      let name = document.getElementById("First Name").value.trim();
+      let name = document.getElementById("last Name").value.trim();
+      let email = document.getElementById("Email").value.trim();
+      let message = document.getElementById("Message").value.trim();
+      let status = document.getElementById("formStatus");
+
+      let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      if (name === "" || email === "" || message === "") {
+        status.style.color = "red";
+        status.textContent = "Please fill all the fields!";
+        return;
+      }
+
+      if (!email.match(emailPattern)) {
+        status.style.color = "red";
+        status.textContent = "Please enter a valid email address!";
+        return;
+      }
+
 
 </body>
 </html>
