@@ -14,7 +14,7 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <section>
+  <section class="about-section">
     <h1>About Us</h1>
     <p>We are a	<b> non-profit group organizing</b> regular blood donation camps across India. Our mission is to encourage voluntary blood donation and ensure that no one dies due to a shortage of blood.</p>
 
@@ -27,11 +27,26 @@
       <li>It only takes <mark>15 minutes</mark> to donate.</li>
       <li>Healthy adults can donate <b>every 3 months</b>.</li>
     </ul>
+
+<button id="motivateBtn">Click for Motivation</button>
+    <p id="motivateText" style="color:red; font-weight:bold;"></p>
   </section>
 
   <footer>
    <small> &copy;Together, we can make a difference. </small>
   </footer>
+<script>
+    
+    window.onload = function() {
+      alert("Welcome to the About Page — Donate Blood, Save Lives!");
+    };
+
+    document.getElementById("motivateBtn").addEventListener("click", function() {
+      document.getElementById("motivateText").innerText = 
+        "Your one donation can save up to THREE lives ";
+    });
+  </script>
+
 
 </body>
 </html>
